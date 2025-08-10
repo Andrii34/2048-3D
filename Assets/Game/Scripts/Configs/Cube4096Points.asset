@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e54497df7eadb7438ae2c4f7b6c253a, type: 3}
   m_Name: Cube4096Points
   m_EditorClassIdentifier: 
-  <Points>k__BackingField: 2048
-  <Color>k__BackingField: {r: 0, g: 0.5019608, b: 0.5019608, a: 1}
+  <Points>k__BackingField: 4096
+  <Color>k__BackingField: {r: 0.28235295, g: 0.23921569, b: 0.54509807, a: 1}
