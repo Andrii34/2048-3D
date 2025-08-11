@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: 7c38a9c8ffe91b142b7a5e5aae0f2c4f
+  m_SerializeEntries:
+  - m_GUID: 247ad4db13af2314da9d7d138cc5c4d7
+    m_Address: Assets/Game/Scripts/Configs/Cube8Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ad3abe6c941de84ba4c6907789975b4
+    m_Address: Assets/Game/Scripts/Configs/Cube4Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51a483ef42c5873479170baab97eaf72
+    m_Address: Assets/Game/Scripts/Configs/Cube32Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51b4805c1bfaeb64fbceca1283bca08f
+    m_Address: Assets/Game/Scripts/Configs/Cube2Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ad206020de0cd0469d7cfbadfecca47
+    m_Address: Assets/Game/Scripts/Configs/Cube512Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7234769e809d7684eb8316a257d863c4
+    m_Address: Assets/Game/Scripts/Configs/Cube256Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 973c8d4394c8e7846929db4bb263cdc4
+    m_Address: Assets/Game/Scripts/Configs/Cube128Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a248bb5cb91271243bbf586626c6d61d
+    m_Address: Assets/Game/Scripts/Configs/Cube4096Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a616d1aa3ed4def4dbac66e501cc6746
+    m_Address: Assets/Game/Scripts/Configs/Cube2048Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c02f26673bdd09a41a681ae750a6bc41
+    m_Address: Assets/Game/Scripts/Configs/Cube16Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4f41458fbd52ad4e9c3e63709b38b97
+    m_Address: Assets/Game/Scripts/LoadingsScreen/loadingScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8154c037bdc1d3458981257e33fb024
+    m_Address: Assets/Game/Scripts/Configs/Cube1024Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e652d5cbfcc0cc043933318e3279666c
+    m_Address: Assets/Game/Scripts/Configs/Cube64Points.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CubeConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f1b94fdd8efb4b64193922eecc2c07ac, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cb648b611cf0f7f469ba28d188d91e18, type: 2}
+    - {fileID: 11400000, guid: 1d8dd9cc847cb0f4aac55972c9c04fc6, type: 2}
