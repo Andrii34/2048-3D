@@ -1,23 +1,32 @@
 using TMPro;
+using UniRx;
 using UnityEngine;
-
+using Zenject;
+using Cube2024.Cube;
 public class CubeView : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private TextMeshPro[] _texts;
-    
-    public void SetView(CubeConfigs configs)
+    private CubeConfigProvider _configProvider;
+    private CubValueContainer _cubValueContainer;
+    [Inject]
+    private void Construct(CubeConfigProvider cubeConfigProvider,CubValueContainer cubValueContainer)
     {
-        if (configs == null)
-        {
-            Debug.LogError("CubeConfigs is null");
-            return;
-        }
-        SetColor(configs.Color);
-        SetText(configs.Points.ToString());
+        _cubValueContainer = cubValueContainer;
+        _configProvider = cubeConfigProvider;
     }
-    private void SetColor(Color color)
+    private void Awake()
     {
+        _cubValueContainer.CubValueReactive.TakeUntilDisable(this)
+            .Subscribe(newValue =>
+            {
+                SetColor(newValue);
+                SetText(newValue.ToString());
+            });
+    }
+    private void SetColor(long value)
+    {
+        Color color = _configProvider.GetConfig(value).Color;
         if (_renderer != null)
         {
             _renderer.material.color = color;
