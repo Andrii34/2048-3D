@@ -3,11 +3,13 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 using Cube2024.GamePlay;
+using System;
 public class CubeView : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private TextMeshPro[] _texts;
     private CubeConfigProvider _configProvider;
+    private IDisposable _subscription;
     private Cube _cube;
     [Inject]
     private void Construct(CubeConfigProvider cubeConfigProvider)
@@ -18,23 +20,31 @@ public class CubeView : MonoBehaviour
     private void Awake()
     {
         _cube = GetComponent<Cube>();
+       
+    }
+    private void OnEnable()
+    {
         _cube.OnCuInit += Init;
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (_cube != null)
         {
             _cube.OnCuInit -= Init;
         }
+        _subscription?.Dispose();
     }
     private void Init()
     {
-        _cube.ValueReactive.TakeUntilDisable(this)
-          .Subscribe(newValue =>
-          {
-              SetColor(newValue);
-              SetText(newValue.ToString());
-          });
+        _subscription?.Dispose(); 
+
+        _subscription = _cube.ValueReactive
+            .Subscribe(value =>
+            {
+                SetColor(value);
+                SetText(value.ToString());
+                
+            });
     }
     private void SetColor(long value)
     {

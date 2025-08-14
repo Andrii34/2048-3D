@@ -38,8 +38,7 @@ namespace Cube2024.GamePlay
         
         public void ResetCube()
         {
-            _container.Dispose();
-            _container = null;
+          
             gameObject.SetActive(false);
         }
        
