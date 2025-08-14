@@ -1,38 +1,46 @@
+using System;
 using UnityEngine;
 using Zenject;
 
-namespace Cube2024.Cube 
+namespace Cube2024.GamePlay
 {
+    [RequireComponent(typeof(ÑubeDetector))]
     public class CubeMerger : MonoBehaviour
     {
-        private CubValueContainer _thisCubValueContainer;
-        private CollisionDetector<Cube> _detector;
+        public event Action OnCubeMerged;
+        private  Cube _thisCube;
+        private ÑubeDetector _detector;
 
-        [Inject]
-        private void Construct(CubValueContainer cubValueContainer)
-        {
-            _thisCubValueContainer = cubValueContainer;
-        }
+      
         private void Awake()
         {
-            _detector = GetComponent<CollisionDetector<Cube>>();
+            _thisCube = GetComponent<Cube>();
+            _detector = GetComponent<ÑubeDetector>();
         }
 
         private void OnEnable()
         {
-            _detector.onCollisionContinue += OnMergerCollision;
+            _detector.OnCollisionStart += OnMergerCollision;
         }
 
         private void OnDisable()
         {
-            _detector.onCollisionContinue -= OnMergerCollision;
+            _detector.OnCollisionContinue -= OnMergerCollision;
         }
         private void OnMergerCollision(Cube cube, Collision collision)
         {
-            if ((_thisCubValueContainer.CubValue == cube.Value && gameObject.GetInstanceID() > cube.GetInstanceID()))
+            if (cube == null || cube.ValueReactive == null || _thisCube == null || _thisCube.ValueReactive == null)
             {
-                _thisCubValueContainer.CubValue *= 2;
-                Destroy(cube.gameObject);
+                
+                return;
+            }
+            if ((_thisCube.Value == cube.Value && gameObject.GetInstanceID() > cube.GetInstanceID()))
+            {
+                
+                long curentValue= _thisCube.Value;
+                _thisCube.SetValue (curentValue *= 2) ;
+                cube.ResetCube();
+                OnCubeMerged?.Invoke();
             }
 
 

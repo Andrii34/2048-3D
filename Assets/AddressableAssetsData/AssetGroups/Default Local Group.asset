@@ -92,6 +92,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - CubeConfigs
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2de772728484f94bb8ae8e1ac205a31
+    m_Address: Assets/Game/Prefabs/CubePrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f1b94fdd8efb4b64193922eecc2c07ac, type: 2}
   m_SchemaSet:

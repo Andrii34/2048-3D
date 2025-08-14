@@ -2,27 +2,39 @@ using TMPro;
 using UniRx;
 using UnityEngine;
 using Zenject;
-using Cube2024.Cube;
+using Cube2024.GamePlay;
 public class CubeView : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private TextMeshPro[] _texts;
     private CubeConfigProvider _configProvider;
-    private CubValueContainer _cubValueContainer;
+    private Cube _cube;
     [Inject]
-    private void Construct(CubeConfigProvider cubeConfigProvider,CubValueContainer cubValueContainer)
+    private void Construct(CubeConfigProvider cubeConfigProvider)
     {
-        _cubValueContainer = cubValueContainer;
+        
         _configProvider = cubeConfigProvider;
     }
     private void Awake()
     {
-        _cubValueContainer.CubValueReactive.TakeUntilDisable(this)
-            .Subscribe(newValue =>
-            {
-                SetColor(newValue);
-                SetText(newValue.ToString());
-            });
+        _cube = GetComponent<Cube>();
+        _cube.OnCuInit += Init;
+    }
+    private void OnDestroy()
+    {
+        if (_cube != null)
+        {
+            _cube.OnCuInit -= Init;
+        }
+    }
+    private void Init()
+    {
+        _cube.ValueReactive.TakeUntilDisable(this)
+          .Subscribe(newValue =>
+          {
+              SetColor(newValue);
+              SetText(newValue.ToString());
+          });
     }
     private void SetColor(long value)
     {

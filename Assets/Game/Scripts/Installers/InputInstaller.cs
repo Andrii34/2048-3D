@@ -13,6 +13,7 @@ public class InputInstaller : MonoInstaller
     {
 #if UNITY_EDITOR || UNITY_STANDALONE
         Container.BindInterfacesAndSelfTo<MouseSwipeDetector>().AsSingle();
+        Debug.Log("[InputInstaller] Bound MouseSwipeDetector for Editor/Standalone platform.");
 #elif UNITY_ANDROID || UNITY_IOS
     Container.BindInterfacesAndSelfTo<MobileSwipeDetector>().AsSingle();
 #else

@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace Cube2024.Cube 
+namespace Cube2024.GamePlay 
 {
     using UniRx;
     using System;
@@ -10,7 +10,7 @@ namespace Cube2024.Cube
     public class CubValueContainer : IDisposable
     {
         private long _cubValue;
-        private ReactiveProperty<long> _cubValueReactive;
+        private ReactiveProperty<long> _cubValueReactive= new ReactiveProperty<long>();
 
         public IReadOnlyReactiveProperty<long> CubValueReactive => _cubValueReactive;
 

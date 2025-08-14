@@ -15,12 +15,18 @@ namespace Cube2024.Handlers
         private GameObject _movableObject;
         private ISwipeDetector _swipeDetector;
 
+        public void SetMovable(GameObject movableObject)
+        {
+            if (movableObject == null)
+                throw new ArgumentNullException(nameof(movableObject), "Movable object cannot be null.");
 
+            _movableObject = movableObject;
+        }
         [Inject]
-        public void Construct(GameObject movableObject, ISwipeDetector swipeDetector)
+        public void Construct( ISwipeDetector swipeDetector)
         {
             _swipeDetector = swipeDetector;
-            _movableObject = movableObject;
+            
         }
 
         private void Start()
@@ -61,7 +67,6 @@ namespace Cube2024.Handlers
         {
             if (_movableObject == null)
                 return;
-
             if (Mathf.Approximately(delta.x, 0f))
                 return;
 

@@ -11,6 +11,6 @@ public class ProjectInstaller : MonoInstaller
                  .AsSingle()
                  .NonLazy();
         Container.Bind<SceneLoadService>().AsSingle().NonLazy();
-        Container.Bind<Score>().AsSingle().NonLazy();
+        
     }
 }

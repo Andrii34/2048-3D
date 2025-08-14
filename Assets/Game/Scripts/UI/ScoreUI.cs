@@ -12,12 +12,13 @@ public class ScoreUI : MonoBehaviour
     [Inject]
     private void Construct(Score score)
     {
+        Debug.Log("[ScoreUI] Construct called with score: " + score);
         _score = score;
     }
     private void Start()
     {
         _score.CurrentScoreReactive
-            .Subscribe(value => scoreText.text = value.ToString())
+            .Subscribe(value => scoreText.text = "Score:"+ value.ToString())
             .AddTo(this);
     }
 }

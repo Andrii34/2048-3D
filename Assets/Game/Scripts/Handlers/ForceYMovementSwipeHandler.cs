@@ -13,17 +13,19 @@ public class ForceYMovementSwipeHandler : MonoBehaviour
     private Rigidbody _movableRigidBody;
     private ISwipeDetector _swipeDetector;
 
-   
-    [Inject]
-    public void Construct(GameObject movableObject,ISwipeDetector swipeDetector)
-    {
-        _swipeDetector = swipeDetector;
-
-        _movableRigidBody = movableObject.GetComponent<Rigidbody>();
-
-        if (_movableRigidBody == null)
+   public void SetMovable(GameObject movableObject)
+        {
+            if (movableObject == null)
+                throw new ArgumentNullException(nameof(movableObject), "Movable object cannot be null.");
+            _movableRigidBody = movableObject.GetComponent<Rigidbody>();
+            if (_movableRigidBody == null)
                 throw new InvalidOperationException("The provided GameObject does not contain a Rigidbody component.");
         }
+        [Inject]
+    public void Construct( ISwipeDetector swipeDetector)
+    {
+        _swipeDetector = swipeDetector;
+     }
 
     private void OnEnable()
     {

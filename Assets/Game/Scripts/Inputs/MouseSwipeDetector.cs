@@ -32,7 +32,7 @@ namespace Cube2024.Inputs
                 _isSwipe = true;
                 OnSwipeStart?.Invoke(Input.mousePosition - _lastPosition);
             }
-
+            
             OnSwipeMove?.Invoke(Input.mousePosition - _lastPosition);
             _lastPosition = Input.mousePosition;
         }
